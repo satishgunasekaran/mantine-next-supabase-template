@@ -41,6 +41,8 @@ This template comes with the following features:
  
 -  Manage Auth State in higher level widgets 
 -  Logout 
+-  Add Theme Toggle
 -  Show User Profile
 -  User Profile Page 
+
 

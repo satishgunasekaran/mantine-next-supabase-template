@@ -1,7 +1,5 @@
 // create a function component
-
-import { RegisterForm } from "@/components/shared/auth/RegisterForm"
-
+import RegisterForm from "@/components/shared/auth/RegisterForm"
 
 
 const RegisterPage = () => {

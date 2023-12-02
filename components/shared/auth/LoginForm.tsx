@@ -13,7 +13,7 @@ import {
   Button,
 } from '@mantine/core';
 import classes from './LoginForm.module.css';
-import { getSupabaseUIClient } from '@/app/utils/supabase';
+import { getSupabaseUIClient } from '@/app/utils/supabase_ui_client';
 
 export function LoginForm() {
   const [email, setEmail] = useState('');
@@ -32,7 +32,7 @@ export function LoginForm() {
 
     // Your authentication logic here (for demonstration, we're logging in)
     try {
-      
+
       const { error } = await supabase.auth.signInWithPassword ({
         email: email,
         password: password,

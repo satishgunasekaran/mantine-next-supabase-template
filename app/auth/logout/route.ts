@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   const cookieStore = cookies()
   const supabase = createRouteHandlerClient<Database>({ cookies: () => cookieStore })
 
-  await supabase.auth.signOut()
+  await supabase.auth.signOut();
 
   return NextResponse.redirect(`${requestUrl.origin}/login`, {
     status: 301,

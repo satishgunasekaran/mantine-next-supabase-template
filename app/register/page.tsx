@@ -1,13 +1,19 @@
 // create a function component
-import RegisterForm from "@/components/shared/auth/RegisterForm"
+import { redirect } from 'next/navigation';
+import RegisterForm from '@/components/shared/auth/RegisterForm';
+import { getSupabaseServerClient } from '@/app/utils/supabase_server_client';
 
-
-const RegisterPage = () => {
+const RegisterPage = async () => {
+    const supabaseClient = getSupabaseServerClient();
+    const { data } = await supabaseClient.auth.getSession();
+    if (data.session) {
+        redirect('/');
+    }
     return (
         <div>
             <RegisterForm />
         </div>
-    )
-}
+    );
+};
 
-export default RegisterPage
+export default RegisterPage;

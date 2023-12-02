@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { Center, Tooltip, UnstyledButton, Stack, rem } from '@mantine/core';
 import {
@@ -13,7 +14,9 @@ import {
   IconSwitchHorizontal,
 } from '@tabler/icons-react';
 import { MantineLogo } from '@mantine/ds';
+import axios from 'axios';
 import classes from './NavbarMinimal.module.css';
+import {redirect} from "next/navigation";
 
 interface NavbarLinkProps {
   icon: typeof IconHome2;
@@ -55,8 +58,7 @@ export function NavbarMinimal() {
   ));
 
   return (
-    <nav className = {classes.navbar}
-    >
+    <nav className={classes.navbar}>
       <Center>
         <MantineLogo type="mark" size={30} />
       </Center>
@@ -69,7 +71,16 @@ export function NavbarMinimal() {
 
       <Stack justify="center" gap={0}>
         <NavbarLink icon={IconSwitchHorizontal} label="Change account" />
-        <NavbarLink icon={IconLogout} label="Logout" />
+        <NavbarLink
+          onClick={async () => {
+            //   send a post request to /api/logout
+            await axios.post('/auth/logout');
+           window.location.href = '/login';
+            }
+            }
+          icon={IconLogout}
+          label="Logout"
+        />
       </Stack>
     </nav>
   );

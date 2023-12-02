@@ -38,11 +38,14 @@ This template comes with the following features:
 
 
 ### To Do 
- 
--  Manage Auth State in higher level widgets 
--  Logout 
+
 -  Add Theme Toggle
 -  Show User Profile
 -  User Profile Page 
+-  Add Reset Password
 
+
+### Enhancements Needed
+- Use routes instead of directly calling the supabase functions
+- Manage Auth State in higher level widgets  
 

@@ -13,7 +13,7 @@ import {
 } from '@mantine/core';
 import classes from './RegisterForm.module.css';
 import axios from 'axios';
-import { getSupabaseUIClient } from '@/app/utils/supabase';
+import { getSupabaseUIClient } from '@/app/utils/supabase_ui_client';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ const RegisterForm = () => {
     const { email, password, confirmPassword, agreeToTerms } = formData;
 
     if (password === confirmPassword && agreeToTerms) {
-      
+
       try {
         const { data, error } = await supabase.auth.signUp({
           email: email,
